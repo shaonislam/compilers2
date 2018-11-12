@@ -70,18 +70,13 @@ int main(int argc,char* argv[])
 		}
 
 
-
+		parser(tk_array, line_array);
 		
 
-
-
-
-		if(feof(file1)){
-			fprintf(stderr, "Scanning Complete\n");
-		}
 	
 		fclose(file1);
 	}
 
 	return 0;
 }
+
