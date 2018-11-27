@@ -10,7 +10,7 @@ main.c
 #include <string.h>
 #include <stdlib.h>
 #include "parser.h"
-
+#include "node.h"
 
 
 int main(int argc,char* argv[])
@@ -63,14 +63,14 @@ int main(int argc,char* argv[])
 				strcpy(tk_array[i], p);
 				line_array[i] = line_number;
 				strcpy(pp, p);
-				p = strtok(NULL, delimit);
+				p = strtok(NULL, delimit);		
 				i++;
 				
 			}
 		}
 
-
-		parser(tk_array, line_array);
+		struct Node *progtree = NULL;
+		progtree = parser(tk_array, line_array);
 		
 
 	
