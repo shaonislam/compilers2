@@ -1,7 +1,7 @@
 CC = gcc
-CFLAGS = -Wall -ansi -lm
+CFLAGS = -Wall -ansi -lm -g
 TARGET = frontEnd
-OBJ = main.o parser.o scanner.o
+OBJ = main.o parser.o scanner.o 
 
 frontEnd: $(OBJ)
 	$(CC) $(CFLAGS) -o frontEnd $(OBJ)

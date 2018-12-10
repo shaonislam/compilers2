@@ -38,7 +38,10 @@ int check_operator (char string[])
 	{
         ':',
 	'+',
-	'-'
+	'-',
+	'=',
+	'>',
+	'<'
 	};
 
 	for (i = 0; i < 3; i++)
@@ -54,6 +57,31 @@ int check_operator (char string[])
 	return -1;
 }
 
+int check_delimeter(char string[])
+{
+	int i;
+	char *match;
+	char delim_array[20] =
+	{
+	'[',
+	']',
+	'(',
+	')',
+	'.'
+	};
+
+	for( i = 0; i < 5; i++)
+	{
+                match = strchr(string, delim_array[i]);
+                if (match != NULL)
+                {
+                        /*matches*/
+                        return 1;
+                }
+	}
+	
+	return -1;	
+}
 
 
 int check_identifier (char string[])
@@ -113,23 +141,23 @@ int check_integer(char string[])
 
 
 
-Token scanner(char tk_word[10], int line)
+Token scanner(char tk_word[20], int line)
 {
-        fprintf(stderr, "\n** SCANNING **\n");
+        /*fprintf(stderr, "\n\n** SCANNING **\n"); */
 	
 	Token tk;
 
 	/*default values*/
 	tk.line = line;
-	tk.tkString = "test";
+	tk.tkString = "default";
 	tk.tkID = "nothing";
 	
 
-	fprintf(stderr,"keyword: %s\n",tk_word);
+	/*fprintf(stderr,"keyword: %s\n",tk_word);*/
 	
 	if(check_keyword(tk_word) > 0)
 	{
-		fprintf(stderr, "MATCHED Keyword\n");		
+		/*fprintf(stderr, "MATCHED Keyword\n");	*/	
 		tk.line = line;
 		tk.tkString = tk_word;
 		tk.tkID = "Keyword";
@@ -137,7 +165,7 @@ Token scanner(char tk_word[10], int line)
 	}
 	else if (check_identifier(tk_word) > 0)
 	{
-		fprintf(stderr, "MATCHED Identifier\n");
+		/*fprintf(stderr, "MATCHED Identifier\n");*/
                 tk.line = line;
                 tk.tkString = tk_word;
                 tk.tkID = "Identifier";
@@ -145,7 +173,7 @@ Token scanner(char tk_word[10], int line)
 	}
 	else if (check_integer(tk_word) > 0)
 	{
-		fprintf(stderr, "MATCHED Integer\n");
+		/*fprintf(stderr, "MATCHED Integer\n");*/
                 tk.line = line;
                 tk.tkString = tk_word;
                 tk.tkID = "Integer";
@@ -153,10 +181,18 @@ Token scanner(char tk_word[10], int line)
 	}
         else if (check_operator(tk_word) > 0)
         {
-                fprintf(stderr, "MATCHED Operator\n");
+               /* fprintf(stderr, "MATCHED Operator\n");*/
                 tk.line = line;
                 tk.tkString = tk_word;
                 tk.tkID = "Operator";
+                return tk;
+        }
+	else if (check_delimeter(tk_word) > 0)
+        {
+                /*fprintf(stderr, "MATCHED Delimeter\n");*/
+                tk.line = line;
+                tk.tkString = tk_word;
+                tk.tkID = "Delimeter";
                 return tk;
         }
 

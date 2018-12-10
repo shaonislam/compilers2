@@ -1,3 +1,8 @@
 Shaon Islam
 CS 4280 - Project 2: Parser
 
+
+To run program: 1) make
+		2) ./frontEnd filename
+
+		VIP: ( filename has to be initially set with filename.fs182 )

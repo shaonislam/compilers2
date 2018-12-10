@@ -10,30 +10,30 @@ struct parse_Treenode{
 
 
 
-Node parser(char tk_array[20][10], int line_array[]);
-Node program(char tk_array[20][10], int line_array[], int inc);
-Node vars(char tk_array[20][10], int line_array[], int inc);
-Node block(char tk_array[20][10], int line_array[], int inc);
-Node expr(char tk_array[20][10], int line_array[], int inc);
-Node expr1(char tk_array[20][10], int line_array[], int inc);
+struct Node parser(char tk_array[20][10], int line_array[]);
+void program(char tk_array[20][10], int line_array[], int inc);
+int vars(char tk_array[20][10], int line_array[], int inc);
+int block(char tk_array[20][10], int line_array[], int inc);
+int expr(char tk_array[20][10], int line_array[], int inc);
+int expr1(char tk_array[20][10], int line_array[], int inc);
 
-Node A(char tk_array[20][10], int line_array[], int inc);
-Node A1(char tk_array[20][10], int line_array[], int inc);
-Node M(char tk_array[20][10], int line_array[], int inc); 
-Node R(char tk_array[20][10], int line_array[], int inc); 
+int A(char tk_array[20][10], int line_array[], int inc);
+int A1(char tk_array[20][10], int line_array[], int inc);
+int M(char tk_array[20][10], int line_array[], int inc); 
+int R(char tk_array[20][10], int line_array[], int inc); 
 
-Node mStat(char tk_array[20][10], int line_array[], int inc);
-Node stat(char tk_array[20][10], int line_array[], int inc); 
-Node stats(char tk_array[20][10], int line_array[], int inc); 
+int mStat(char tk_array[20][10], int line_array[], int inc);
+int stat(char tk_array[20][10], int line_array[], int inc); 
+int stats(char tk_array[20][10], int line_array[], int inc); 
 
-Node in(char tk_array[20][10], int line_array[], int inc);
-Node out(char tk_array[20][10], int line_array[], int inc);   
+int in(char tk_array[20][10], int line_array[], int inc);
+int out(char tk_array[20][10], int line_array[], int inc);   
 
-Node ifs(char tk_array[20][10], int line_array[], int inc);
-Node loop(char tk_array[20][10], int line_array[], int inc);
+int ifs(char tk_array[20][10], int line_array[], int inc);
+int loop(char tk_array[20][10], int line_array[], int inc);
 
-Node assign(char tk_array[20][10], int line_array[], int inc); 
-Node RO(char tk_array[20][10], int line_array[], int inc);    
+int assign(char tk_array[20][10], int line_array[], int inc); 
+int RO(char tk_array[20][10], int line_array[], int inc);    
  
 void error(int i);
 

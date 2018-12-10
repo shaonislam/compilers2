@@ -12,7 +12,6 @@ main.c
 #include "parser.h"
 #include "node.h"
 
-
 int main(int argc,char* argv[])
 {
 	if (argc > 2)
@@ -69,11 +68,7 @@ int main(int argc,char* argv[])
 			}
 		}
 
-		struct Node *progtree = NULL;
-		progtree = parser(tk_array, line_array);
-		
-
-	
+		parser(tk_array, line_array);
 		fclose(file1);
 	}
 
