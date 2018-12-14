@@ -11,6 +11,7 @@ main.c
 #include <stdlib.h>
 #include "parser.h"
 #include "node.h"
+#include "testTree.h"
 
 int main(int argc,char* argv[])
 {
@@ -68,7 +69,11 @@ int main(int argc,char* argv[])
 			}
 		}
 
-		parser(tk_array, line_array);
+		Node *prog_tree;
+		prog_tree = parser(tk_array, line_array);
+
+		fprintf(stderr, "\n\n_________________ TREE:______________\n");
+		printTree(prog_tree);
 		fclose(file1);
 	}
 

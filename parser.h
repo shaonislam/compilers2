@@ -3,13 +3,35 @@
 
 #include "node.h"
 
-struct parse_Treenode{
-	char *nonterm;
-	struct parse_Treenode *children[10];		
-};
 
+Node *parser(char tk_array[20][10], int line_array[]);
+Node *program(char tk_array[20][10], int line_array[]);
+Node *vars(char tk_array[20][10], int line_array[], int inclvl []);
+Node *block(char tk_array[20][10], int line_array[], int inclvl []);
+Node *expr(char tk_array[20][10], int line_array[], int inclvl []);
+Node *expr1(char tk_array[20][10], int line_array[], int inclvl []);
 
+Node *A(char tk_array[20][10], int line_array[], int inclvl []);
+Node *A1(char tk_array[20][10], int line_array[], int inclvl []);
+Node *M(char tk_array[20][10], int line_array[], int inclvl []);
+Node *R(char tk_array[20][10], int line_array[], int inclvl []);
 
+Node *mStat(char tk_array[20][10], int line_array[], int inclvl []);
+Node *stat(char tk_array[20][10], int line_array[], int inclvl []);
+Node *stats(char tk_array[20][10], int line_array[], int inclvl []);
+
+Node *in(char tk_array[20][10], int line_array[], int inclvl []);
+Node *out(char tk_array[20][10], int line_array[], int inclvl []);
+
+Node *ifs(char tk_array[20][10], int line_array[], int inclvl []);
+Node *loop(char tk_array[20][10], int line_array[], int inclvl []);
+
+Node *assign(char tk_array[20][10], int line_array[], int inclvl []);
+Node *RO(char tk_array[20][10], int line_array[], int inclvl []);
+
+void error(int i);
+
+/*
 struct Node parser(char tk_array[20][10], int line_array[]);
 void program(char tk_array[20][10], int line_array[], int inc);
 int vars(char tk_array[20][10], int line_array[], int inc);
@@ -36,7 +58,7 @@ int assign(char tk_array[20][10], int line_array[], int inc);
 int RO(char tk_array[20][10], int line_array[], int inc);    
  
 void error(int i);
-
+*/
 
 
 
